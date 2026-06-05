@@ -1,6 +1,8 @@
 # CryoSkywater130nm_CorrectedForNgspice
+NGSpice simulation using the translated models based on https://github.com/UTA-Advanced-Detector-Technologies/Skywater-130nm-77K-Cryogenic-Models/tree/main 
 
 #Downloading_Volare
+
 First, ensure Volare is properly set up (I did this by creating a seperate file titled skywater130nm where I placed all the things downloaded from volare (which should be 3 top files: volare, sky130A, sky130B.) 
 My path essentially looked like /home/<user>/skywater130nm/volare...)
 
