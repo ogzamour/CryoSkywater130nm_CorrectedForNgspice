@@ -30,12 +30,12 @@ This is the setup I used, and I just made sure sims were run in spice_env:
 ```
 
 #Enviornment_Setup
-In order to correctly set up the 77k file to work with the rest of volare, you will want to place sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice in the following directory:
+In order to correctly set up the 77k nfet file to work with the rest of volare, you will want to place sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice in the following directory:
 ```
 skywater130nm/volare/sky130/versions/a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b/sky130A/libs.ref/sky130_fd_pr/spice
 ```
-(the ordiginal sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice was compressed by Mystic. To use this with NGspice, you can either use the translated script or you can translate the original 
-script using the translation code in the repo. You will also want to replace the include with your own directory. The pfet script has not been run through the translating script, but the process is the same as for the nfet.)
+(the original sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice (and pfet version) was compressed by Mystic. To use this with NGspice, you can either use the translated nfet script or you can translate the original 
+scripts (compressed-cryo-files) by running them through the "mysticToNg" code in the repo. You will also want to replace the include at the top of the 77k files with your own directory. The pfet script has not been run through the translating script, but the process is the same as for the nfet.)
 
 Once the correct nfet file has been placed in the directory, you will want to update the sky130.lib.spice file (/home/<user>/skywater130nm/volare/sky130/versions/a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b/sky130A/libs.tech/ngspice/sky130.lib.spice)
 To do this, insert the following code in sky130.lib.spice under '******* SkyWater sky130 model library *********':
@@ -62,8 +62,9 @@ To do this, insert the following code in sky130.lib.spice under '******* SkyWate
 
 .endl
 ```
+(To use pfet, delete '*' in front of the include statements)
 
-After this, to use the pdk at 77k, just change the .lib declaration in the ngspice files from tt to tt_77k!
+After this, to use the pdk at 77k, just change the .lib declaration in the ngspice simulation files from tt to tt_77k!
 
 #Running_NGSpice_Sims
 
@@ -73,7 +74,7 @@ The ngspice simulation can be run just from the terminal. Inside the simulation 
 - vgs_sweep_varVDS.spice : Sweeps VGS several times over a set of constant VDS
 - vds_sweep_varVGS.spice : Sweeps VDS several times over a set of constant VGS
 
-These can be run by typing ```ngspice -b <desiredSim.spice>``` in the terminal while in the simulation directory. 
+These can be run by typing ```ngspice -b <desiredSimFile>.spice``` in the terminal while in the simulation directory. 
 
 To plot the results, use plotting-spice.ipynb, where there are several different plotting methods depending on which simulation was run.
 (note: if you set ngspice in a specific enviornment like spice_env, make sure it is active while trying to run the simulation)
