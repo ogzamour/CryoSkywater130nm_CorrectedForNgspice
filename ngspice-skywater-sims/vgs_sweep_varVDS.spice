@@ -1,0 +1,51 @@
+* NMOS Id–Vgs sweep (Sky130) 
+.lib "/home/oliviag/skywater130nm/volare/sky130/versions/a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b/sky130A/libs.tech/ngspice/sky130.lib.spice" tt 
+
+* Drain bias 
+VDS DRAIN 0 1.85 
+* Gate sweep source 
+VGS GATE 0 0 
+* MOSFET 
+XM1 DRAIN GATE 0 0 sky130_fd_pr__nfet_01v8_lvt w=1.6 l=0.15 
+
+.control
+  destroy all
+set filetype=ascii
+
+  * 1. Define your array of VDS values 
+  compose vds_vals values 0.01 0.37 0.74 1.1 1.5 1.9 
+  
+    
+  * 1. Create a clean output file with column headers
+  *echo "VDS VGS ID" > master_sweep_data.txt
+
+  * 2. Loop through your VDS values using a simple foreach loop
+  foreach idx 0 1 2 3 4 5
+    
+    * Update the VDS source and run the VGS sweep
+    let current_vds = vds_vals[$idx]
+    set vds_scalar = $&current_vds
+    alter VDS = $vds_scalar
+
+    save @m.xm1.msky130_fd_pr__nfet_01v8_lvt[id] v(GATE)
+
+    dc VGS 0 1.85 0.01
+
+    * 3. Append the VDS value, VGS vector, and ID vector directly to the file
+    * No vector-to-scalar conversions or dummy math required!
+    let vgs_axis = v(GATE)
+    let id_axis = @m.xm1.msky130_fd_pr__nfet_01v8_lvt[id]
+    let vds_axis = current_vds
+    
+    
+    wrdata vgs_sweep_step{$idx}.txt vgs_axis id_axis vds_axis
+    
+    
+    *print $vds_val v(GATE) @m.xm1.msky130_fd_pr__nfet_01v8_lvt[id] >> master_sweep_data.txt
+
+
+    
+  end 
+.endc 
+
+.end
