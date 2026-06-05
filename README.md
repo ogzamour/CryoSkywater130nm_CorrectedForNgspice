@@ -1,7 +1,7 @@
 # CryoSkywater130nm_CorrectedForNgspice
 NGSpice simulation using the translated models based on https://github.com/UTA-Advanced-Detector-Technologies/Skywater-130nm-77K-Cryogenic-Models/tree/main 
 
-#Downloading_Volare
+##Downloading_Volare
 
 First, ensure Volare is properly set up (I did this by creating a seperate file titled skywater130nm where I placed all the things downloaded from volare (which should be 3 top files: volare, sky130A, sky130B.) 
 My path essentially looked like /home/<user>/skywater130nm/volare...)
@@ -20,7 +20,7 @@ volare enable --pdk sky130 a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b
 # This version from 10/08/2024 was used for 77K PDK development
 ```
 
-#Downloading_Ngspice
+##Downloading_Ngspice
 
 I used jupyter notebooks for this, so that is the setup I will show. However, just make sure version 41 of ngspice is installed and it should work.
 This is the setup I used, and I just made sure sims were run in spice_env:
@@ -31,7 +31,7 @@ This is the setup I used, and I just made sure sims were run in spice_env:
   ngspice --version
 ```
 
-#Enviornment_Setup
+##Enviornment_Setup
 In order to correctly set up the 77k nfet file to work with the rest of volare, you will want to place sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice in the following directory:
 ```
 skywater130nm/volare/sky130/versions/a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b/sky130A/libs.ref/sky130_fd_pr/spice
@@ -68,7 +68,7 @@ To do this, insert the following code in sky130.lib.spice under '******* SkyWate
 
 After this, to use the pdk at 77k, just change the .lib declaration in the ngspice simulation files from tt to tt_77k!
 
-#Running_NGSpice_Sims
+##Running_NGSpice_Sims
 
 The ngspice simulation can be run just from the terminal. Inside the simulation folder in the repo, you will find 4 .spice files: 
 - vds_sweep_IV.spice : Sweeps VDS with constant VGS
