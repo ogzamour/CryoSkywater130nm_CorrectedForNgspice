@@ -9,15 +9,14 @@ My path essentially looked like /home/<user>/skywater130nm/volare...)
 To download volare, I used the following:
 
 ```
+#Taken from original cryo repo
 pip install volare
 
 export PDK_ROOT="/home/<your_username>/<desired_PDK_directory>"
 
 volare ls-remote --pdk sky130
-# Lists all available versions of the Sky130 PDK
 
 volare enable --pdk sky130 a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b
-# This version from 10/08/2024 was used for 77K PDK development
 ```
 
 ## Downloading_Ngspice
