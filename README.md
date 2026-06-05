@@ -36,8 +36,8 @@ In order to correctly set up the 77k nfet file to work with the rest of volare, 
 ```
 skywater130nm/volare/sky130/versions/a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b/sky130A/libs.ref/sky130_fd_pr/spice
 ```
-(the original sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice (and pfet version) was compressed by Mystic. To use this with NGspice, you can either use the translated nfet script or you can translate the original 
-scripts (compressed-cryo-files) by running them through the "mysticToNg" code in the repo. You will also want to replace the include at the top of the 77k files with your own directory. The pfet script has not been run through the translating script, but the process is the same as for the nfet.)
+*****The original sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice (and pfet version) was compressed by Mystic. To use this with NGspice, you can either use the translated nfet script or you can translate the original 
+scripts (compressed-cryo-files) by running them through the "mysticToNg" code in the repo. You will also want to replace the include at the top of the 77k files with your own directory. The pfet script has not been run through the translating script, but the process is the same as for the nfet.*****
 
 Once the correct nfet file has been placed in the directory, you will want to update the sky130.lib.spice file (/home/<user>/skywater130nm/volare/sky130/versions/a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b/sky130A/libs.tech/ngspice/sky130.lib.spice)
 To do this, insert the following code in sky130.lib.spice under '******* SkyWater sky130 model library *********':
