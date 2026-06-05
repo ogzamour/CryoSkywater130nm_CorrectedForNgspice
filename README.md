@@ -6,7 +6,7 @@ NGSpice simulation using translated cryogenic PDk models based on https://github
 First, ensure Volare is properly set up (I did this by creating a seperate file titled skywater130nm where I placed all the things downloaded from volare (which should be 3 top files: volare, sky130A, sky130B.) 
 My path essentially looked like /home/<user>/skywater130nm/volare...)
 
-To download volare, I used the following:
+To download volare, I used the following (with <desired_PDK_directory> = skywater130nm):
 
 ```
 #Taken from original cryo repo
