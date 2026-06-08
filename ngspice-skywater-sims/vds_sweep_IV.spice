@@ -27,23 +27,6 @@ run
 set filetype=ascii
 showmod m.xm1.msky130_fd_pr__nfet_01v8_lvt : vth0 u0 rdsw nfactor vsat eta0 delta
 
-*For if parameters need to be changed or modified at all
-
-set p_change = 0
-if ($p_change)
-    altermod m.xm1.msky130_fd_pr__nfet_01v8_lvt vth0 = 0.45
-    altermod m.xm1.msky130_fd_pr__nfet_01v8_lvt u0 = 0.09
-    altermod m.xm1.msky130_fd_pr__nfet_01v8_lvt rdsw = 101
-    altermod m.xm1.msky130_fd_pr__nfet_01v8_lvt nfactor = 12
-    altermod m.xm1.msky130_fd_pr__nfet_01v8_lvt vsat = 0.45
-    altermod m.xm1.msky130_fd_pr__nfet_01v8_lvt eta0 = -4.1
-    altermod m.xm1.msky130_fd_pr__nfet_01v8_lvt delta = 0.45
-    run
-else
-    echo ">>> Flag is FALSE: Keeping original Sky130 PDK parameters" 
-endif
-
-showmod m.xm1.msky130_fd_pr__nfet_01v8_lvt : vth0 u0 rdsw nfactor vsat eta0 delta
 wrdata singleSweepVDS.txt v(DRAIN) i(VDS)
 quit
 .endc
