@@ -80,5 +80,11 @@ These can be run by typing ```ngspice -b <desiredSimFile>.spice``` in the termin
 To plot the results, use plotting-spice.ipynb, where there are several different plotting methods depending on which simulation was run.
 (note: if you set ngspice in a specific enviornment like spice_env, make sure it is active while trying to run the simulation)
 
+
+## Data_Generation
+
+To generate training data using ngspice, run the files <vgs/vds>Sweep.spice. Inside the files, you can choose which parameter you want to vary using a monetcarlo simulation (the options look like "mc_<parameter> = 0"). Once these are run, compile the data into a CSV file by running 
+``` python CSV.py ``` in the terminal. After the data is in csv format, IV curves can be generated using the IV_Curve_Gen.ipynb file located in the sim_data_vd directory. ***Note that in the plotting file, vth0 is preloaded as the varying parameter. Make sure to change to match your parameter/ parameters.***
+
   
 
