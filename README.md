@@ -81,10 +81,14 @@ To plot the results, use plotting-spice.ipynb, where there are several different
 (note: if you set ngspice in a specific enviornment like spice_env, make sure it is active while trying to run the simulation)
 
 
-## Data_Generation
+## RRMS
 
-To generate training data using ngspice, run the files <vgs/vds>Sweep.spice. Inside the files, you can choose which parameter you want to vary using a monetcarlo simulation (the options look like "mc_<parameter> = 0"). Once these are run, compile the data into a CSV file by running 
-``` python CSV.py ``` in the terminal. After the data is in csv format, IV curves can be generated using the IV_Curve_Gen.ipynb file located in the sim_data_vd directory. ***Note that in the plotting file, vth0 is preloaded as the varying parameter. Make sure to change to match your parameter/ parameters.***
+To get the RRMS calculation for the scripts, first ensure you have the cryo_data file from the paper repo downloaded.
+Then, run ```python runAll.py``` in both the nfet_mod and pfet_mod directories ***Note: will have to change path in the .include***
+
+After both are run, ensure the paths in getRMS.py match your directory (for both the cryo data and modeled pfet/nfet data). Then, run ```python getRMS.py``` in the ngspice-skywater-sims directory and the RRMS should print in terminal.
+
+
 
   
 
