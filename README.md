@@ -1,4 +1,4 @@
-# CryoSkywater130nm_CorrectedForNgspice
+# CryoSkywater130nm_Ngspice
 NGSpice simulation using translated cryogenic PDk models based on https://github.com/UTA-Advanced-Detector-Technologies/Skywater-130nm-77K-Cryogenic-Models/tree/main 
 
 ## Downloading_Volare
