@@ -12,7 +12,7 @@ from scipy.stats import qmc
 
 
 #SPICE_FILE = "paramMC_vds_sweep.spice"
-PARENT_DIR = Path("/home/oliviag/ngspice-skywater-sims/montecarlo/mc_output_LHC")
+PARENT_DIR = Path("/home/oliviag/ngspice-skywater-sims/montecarlo/mc_output_lhc")
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 def getParamOriginal(fet_type, devName, devDir, circuit):
     filePath_s = os.path.join(devDir, "ogparam.txt")
